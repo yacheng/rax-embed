@@ -1,0 +1,43 @@
+{
+  "name": "rax-embed",
+  "version": "1.0.0-beta.0",
+  "description": "rax embed container",
+  "author": "amdgigabyte",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf ./lib && rm -rf ./package-lock.json",
+    "build": "npm run clean && rax-scripts build --type 'component'",
+    "start": "rax-scripts start --type 'component' -p 8000",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "Rax",
+    "rax-component"
+  ],
+  "miniappConfig": {
+    "main": "lib/miniapp/index"
+  },
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "dependencies": {
+    "universal-env": "^0.6.6"
+  },
+  "peerDependencies": {
+    "rax": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "csstype": "^2.6.4",
+    "driver-dom": "^1.0.0",
+    "driver-weex": "^1.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-rax": "^0.0.0",
+    "rax": "^1.0.0",
+    "rax-scripts": "1.2.1",
+    "rax-test-renderer": "^1.0.0"
+  }
+}
