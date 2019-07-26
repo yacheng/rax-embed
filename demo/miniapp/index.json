@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "小程序Rax Text 组件",
+  "usingComponents": {
+    "rax-embed": "../../src/miniapp/index"
+  }
+}
