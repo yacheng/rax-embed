@@ -1,4 +1,4 @@
-import { createElement } from 'rax';
+import {createElement} from 'rax';
 import { isWeex, isWeb } from 'universal-env';
 import { Props } from './types';
 
