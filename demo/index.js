@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { createElement, render, Component } from 'rax';
+import { createElement, render } from 'rax';
 import * as DriverDOM from 'driver-dom';
 import * as DriverWeex from 'driver-weex';
 import { isWeex } from 'universal-env';
