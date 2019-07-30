@@ -1,4 +1,4 @@
-import * as Rax from "rax";
+import * as Rax from 'rax';
 
 export interface Props extends Rax.Attributes {
   defaultUrlParam?: {
@@ -6,7 +6,7 @@ export interface Props extends Rax.Attributes {
     _page_home_isweex_: boolean;
     useIframeInWeb: boolean;
   };
-  urlParam?: object | string;
+  urlParam?: { [key: string]: any } | string;
   src?: string;
   useIframeInWeb?: boolean;
   style?: Rax.CSSProperties;
