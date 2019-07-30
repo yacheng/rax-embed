@@ -17,15 +17,11 @@
     "noImplicitThis": false,
     "outDir": "lib",
     "baseUrl": ".",
+    "rootDir": "src",
     "paths": {
       "rax": ["node_modules/@rax-types/rax"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "lib"]
 }

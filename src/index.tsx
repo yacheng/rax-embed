@@ -1,6 +1,6 @@
-import { createElement } from "rax";
-import { isWeex, isWeb } from "universal-env";
-import { Props } from "./types";
+import { createElement } from 'rax';
+import { isWeex, isWeb } from 'universal-env';
+import { Props } from './types';
 
 function isWeexUrl(url) {
   return /(_wx_tpl=[^\s&]|wh_weex=true)/.test(url);
@@ -10,9 +10,9 @@ function genFixedUrl(props) {
   // handle android ios
   let fixedUrl = props.src;
 
-  const prefix = fixedUrl.indexOf("?") >= 0 ? "&" : "?";
+  const prefix = fixedUrl.indexOf('?') >= 0 ? '&' : '?';
 
-  if (typeof props.urlParam == "string") {
+  if (typeof props.urlParam == 'string') {
     fixedUrl += prefix + props.urlParam;
   } else {
     let paramsStrArr = [];
@@ -23,10 +23,10 @@ function genFixedUrl(props) {
       props.defaultUrlParam
     );
     for (let k in assignUrlParam) {
-      paramsStrArr.push(k + "=" + assignUrlParam[k]);
+      paramsStrArr.push(k + '=' + assignUrlParam[k]);
     }
 
-    fixedUrl += prefix + paramsStrArr.join("&");
+    fixedUrl += prefix + paramsStrArr.join('&');
   }
 
   return fixedUrl;
@@ -34,12 +34,14 @@ function genFixedUrl(props) {
 
 const defaultProps: Props = {
   defaultUrlParam: {
-    _page_inside_embed_: "true",
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    _page_inside_embed_: 'true',
+    // eslint-disable-next-line @typescript-eslint/camelcase
     _page_home_isweex_: isWeex,
     useIframeInWeb: false
   },
   urlParam: {},
-  src: ""
+  src: ''
 };
 
 const Embed = (props: Props) => {
@@ -51,26 +53,26 @@ const Embed = (props: Props) => {
     return (
       <iframe
         {...props}
-        type={isWeex ? "weex" : ""}
+        type={isWeex ? 'weex' : ''}
         itemId={1}
         src={url}
         style={{
           ...{ borderWidth: 0 },
           ...props.style,
-          ...{ visibility: "visible" }
+          ...{ visibility: 'visible' }
         }}
       />
     );
   }
 
-  if ((isWeex && isWeexUrl(url)) || isWeb) {
+  if (isWeex && isWeexUrl(url) || isWeb) {
     return (
       <embed
         {...props}
-        type={isWeex ? "weex" : ""}
+        type={isWeex ? 'weex' : ''}
         itemId={1}
         src={url}
-        style={{ ...props.style, ...{ visibility: "visible" } }}
+        style={{ ...props.style, ...{ visibility: 'visible' } }}
       />
     );
   } else {

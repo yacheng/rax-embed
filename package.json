@@ -1,6 +1,6 @@
 {
   "name": "rax-embed",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Embed container for Rax.",
   "author": "amdgigabyte",
   "main": "lib/index.js",
@@ -10,7 +10,9 @@
     "build": "npm run clean && rax-scripts build --type 'component'",
     "start": "rax-scripts start --type 'component' -p 8000",
     "miniapp": "rax-scripts start --type 'component-miniapp'",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "rax-scripts test",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src --fix"
   },
   "keywords": [
     "Rax",
@@ -40,8 +42,6 @@
     "eslint": "^5.16.0",
     "eslint-config-rax": "^0.0.0",
     "rax": "^1.0.0",
-    "@rax-types/rax": "^1.0.5",
-    "@types/ali-app": "^1.0.0",
     "rax-scripts": "1.2.1",
     "rax-test-renderer": "^1.0.0"
   }

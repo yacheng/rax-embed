@@ -1,16 +1,13 @@
 Component({
-  data: {
-  },
+  data: {},
   props: {
     src: '',
-    onMessage: ()=>{
-    }
+    onMessage: () => {}
   },
-  didMount() {
-  },
+  didMount() {},
   methods: {
-    onMessage(e){
-      this.props.onMessage(e)
+    onMessage(e) {
+      this.props.onMessage(e);
     }
   }
 });
