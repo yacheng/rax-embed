@@ -2,14 +2,14 @@
   "name": "rax-embed",
   "version": "1.0.0",
   "description": "Embed container for Rax.",
+  "license": "BSD-3-Clause",
   "author": "amdgigabyte",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rm -rf ./lib && rm -rf ./package-lock.json",
-    "build": "npm run clean && rax-scripts build --type 'component'",
-    "start": "rax-scripts start --type 'component' -p 8000",
-    "miniapp": "rax-scripts start --type 'component-miniapp'",
+    "clean": "rm -rf ./lib ./package-lock.json ./yarn.lock ./demo/miniapp/lib",
+    "build": "npm run clean && rax-scripts build",
+    "start": "rax-scripts start",
     "prepublishOnly": "npm run build",
     "test": "rax-scripts test",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src --fix"
@@ -25,6 +25,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "universal-env": "^1.0.0"
   },
   "peerDependencies": {
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@rax-types/rax": "^1.0.5",
     "@types/ali-app": "^1.0.0",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.12",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
@@ -42,7 +44,9 @@
     "eslint": "^5.16.0",
     "eslint-config-rax": "^0.0.0",
     "rax": "^1.0.0",
-    "rax-scripts": "1.2.1",
-    "rax-test-renderer": "^1.0.0"
+    "rax-plugin-component": "^0.1.9",
+    "rax-scripts": "^2.0.0",
+    "rax-test-renderer": "^1.0.0",
+    "typescript": "^3.5.3"
   }
 }

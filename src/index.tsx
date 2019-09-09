@@ -1,12 +1,14 @@
-import { createElement } from 'rax';
+import { createElement, FunctionComponent } from 'rax';
 import { isWeex, isWeb } from 'universal-env';
+import cx from 'classnames';
 import { Props } from './types';
+import './index.css';
 
-function isWeexUrl(url) {
+function isWeexUrl(url: string) {
   return /(_wx_tpl=[^\s&]|wh_weex=true)/.test(url);
 }
 
-function genFixedUrl(props) {
+function genFixedUrl(props: Props) {
   // handle android ios
   let fixedUrl = props.src;
 
@@ -44,23 +46,19 @@ const defaultProps: Props = {
   src: ''
 };
 
-const Embed = (props: Props) => {
-  props = { ...defaultProps, ...props };
-  let { useIframeInWeb } = props;
-  let url = genFixedUrl(props);
-
+const Embed: FunctionComponent<Props> = (props = defaultProps) => {
+  const { useIframeInWeb, className, style } = props;
+  const url = genFixedUrl(props);
+  const cls = cx('rax-embed', className);
   if (useIframeInWeb && isWeb) {
     return (
       <iframe
         {...props}
+        className={cls}
         type={isWeex ? 'weex' : ''}
         itemId={1}
         src={url}
-        style={{
-          ...{ borderWidth: 0 },
-          ...props.style,
-          ...{ visibility: 'visible' }
-        }}
+        style={style}
       />
     );
   }
@@ -69,14 +67,15 @@ const Embed = (props: Props) => {
     return (
       <embed
         {...props}
+        className={cls}
+        style={style}
         type={isWeex ? 'weex' : ''}
         itemId={1}
         src={url}
-        style={{ ...props.style, ...{ visibility: 'visible' } }}
       />
     );
   } else {
-    return <web {...props} src={url} style={props.style} />;
+    return <web {...props} className={cls} style={style} src={url} />;
   }
 };
 

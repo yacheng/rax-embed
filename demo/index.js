@@ -11,5 +11,5 @@ const urlParam = {
 };
 render(<Embed urlParam={urlParam} src={'http://taobao.com'} useIframeInWeb={true} style={{
   height: 750,
-  width: 750
+  width: 300
 }} />, document.body, { driver: isWeex ? DriverWeex : DriverDOM });
